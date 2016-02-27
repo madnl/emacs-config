@@ -96,7 +96,7 @@
 
 (tool-bar-mode -1)
 
-(setq x-select-enable-clipboard t
+(setq x-select-enable-clipboard nil
       x-select-enable-primary t
       visible-bell t)
 
@@ -130,6 +130,11 @@
 ;; Hooks
 
 (add-hook 'clojure-mode-hook #'paredit-mode)
+
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;; Backup stuff
 
